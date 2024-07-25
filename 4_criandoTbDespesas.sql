@@ -1,7 +1,7 @@
 USE Despesas
 GO 
 
--- verificando se a tb criado já existe;
+-- verificando se a tb já existe;
 IF NOT EXISTS ( SELECT name
 				FROM sys.tables
 				WHERE name= 'DespesasFixas')
@@ -65,7 +65,7 @@ BEGIN
 		DATA_VENCIMENTO DATETIME		NULL,
 		DATA_PAGAMENTO DATETIME			NULL,
 		DETALHES VARCHAR(MAX)			NULL,
-		STATUS_DESPESA INT				NOT NULL)
+		STATUS_DESPESA INT				NOT NULL) -- 0=NãoPaga, 1=Paga e 2=FixaExcluída
 
 		-- criando chave primaria(FK_USUARIOS);
 		ALTER TABLE Despesas WITH NOCHECK

@@ -1,7 +1,7 @@
 USE Despesas
 GO 
 
--- verificando se a tb criado já existe;
+-- verificando se a tb já existe;
 IF NOT EXISTS ( SELECT name
 				FROM sys.tables
 				WHERE name= 'Contas')
