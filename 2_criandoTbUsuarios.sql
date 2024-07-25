@@ -1,3 +1,4 @@
+-- criação do database
 USE Despesas
 GO
 
@@ -18,12 +19,11 @@ END;
 
 
 /*
+-- testando criação da tabela
 SELECT * FROM Usuarios
 
+
+-- verficando informações gerais
 SP_HELP 'Usuarios'
 
 */
-
-
-SELECT TABLE_NAME
-FROM INFORMATION_SCHEMA.COLUMNS
