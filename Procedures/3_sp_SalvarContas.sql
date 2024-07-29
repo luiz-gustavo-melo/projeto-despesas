@@ -7,9 +7,10 @@ AS
 BEGIN TRY
 	IF (@ID_CONTAS = 0)
 	BEGIN 
-		INSERT Contas(FK_USUARIOS, NOME, ICONE)
+		INSERT [dbo].[Contas](FK_USUARIOS, NOME, ICONE)
 		SELECT @FK_USUARIOS, @NOME, @ICONE
 
+		-- irá retornar a última PK inserida;
 		SET @ID_CONTAS = SCOPE_IDENTITY()
 	END 
 ELSE 
@@ -32,13 +33,15 @@ BEGIN CATCH
 		'Nome do procedimento: ',	ERROR_PROCEDURE(),		CHAR(13),
 		'Linha do Error: ',			ERROR_LINE(),			CHAR(13))
 
-	DECLARE @ESTADO INT = ERROR_STATE();
+		DECLARE @ESTADO INT = ERROR_STATE();
 
 	THROW 50000, @ERRO_COMPLETO, @ESTADO
 END CATCH
 
 
 /*
+Testando procedure: 
+
 EXEC sp_SalvarContas @ID_CONTAS = 0, @FK_USUARIOS = 1 , @NOME = 'Inter', @ICONE = 1
 
 SELECT * FROM Usuarios
