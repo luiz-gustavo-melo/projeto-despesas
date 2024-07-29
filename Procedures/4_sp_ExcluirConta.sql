@@ -42,7 +42,7 @@ BEGIN TRY
 			WHERE (ID_CONTAS = @ID_CONTAS)
 
 		SET @RETORNO = 'RegistroExcluído'
-	END
+		END
 
 	SELECT @RETORNO AS Retorno
 END TRY
