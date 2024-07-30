@@ -30,7 +30,7 @@ BEGIN TRY
 		END
 
 	-- validando quando não existe o registro passado no parâmetro @id_contas;
-	ELSE IF NOT EXISTS(SELECT 1 FROM [Despesas].[dbo].[Contas] WHERE ID_CONTAS = @ID_CONTAS) 
+	ELSE IF NOT EXISTS(SELECT 1 FROM [Despesas].[dbo].[Contas] WHERE (ID_CONTAS = @ID_CONTAS)) 
 		BEGIN
 			SET @RETORNO = 'RegistroVazio'
 		END
